@@ -1,43 +1,82 @@
+import dev.ma7.fallingwords.buildsrc.Android
+import dev.ma7.fallingwords.buildsrc.Libs
+
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
-android {
-    compileSdk 32
+preBuild.dependsOn "detekt"
 
+android {
+    compileSdkVersion Android.compileSdkVersion
     defaultConfig {
-        applicationId "dev.ma7.fallingwords"
-        minSdk 21
-        targetSdk 32
-        versionCode 1
-        versionName "1.0"
+        applicationId Android.applicationId
+        minSdkVersion Android.minSdkVersion
+        targetSdkVersion Android.targetSdkVersion
+        versionCode Android.versionCode
+        versionName Android.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
+            debuggable false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
     }
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.6.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    // Kotlin
+    implementation Libs.Kotlin.kotlinLib
+    implementation Libs.Kotlin.coroutines
+    implementation Libs.Kotlin.coroutinesAndroid
+
+    // Jetpack
+    implementation Libs.Jetpack.appCompat
+    implementation Libs.Jetpack.coreKtx
+    implementation Libs.Jetpack.viewModelKtx
+    implementation Libs.Jetpack.liveDataKtx
+    implementation Libs.Jetpack.material
+    implementation Libs.Jetpack.constraintLayout
+    implementation Libs.Jetpack.navigationFragmentKtx
+    implementation Libs.Jetpack.navigationUiKtx
+
+    // Hilt
+    implementation Libs.Jetpack.hilt
+    kapt Libs.Jetpack.hiltCompiler
+
+    // Common
+    implementation Libs.Common.gson
+
+    // Test Dependencies
+    testImplementation Libs.Testing.junit
+    testImplementation Libs.Testing.coroutinesTest
+    testImplementation Libs.Testing.mockitoKotlin
+    testImplementation Libs.Testing.testRunner
+    testImplementation Libs.Testing.coreTesting
+    androidTestImplementation Libs.Testing.espresso
+    androidTestImplementation Libs.Testing.testExtJunit
 }
