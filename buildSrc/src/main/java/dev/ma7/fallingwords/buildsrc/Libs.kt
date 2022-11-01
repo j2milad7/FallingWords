@@ -42,6 +42,7 @@ object Libs {
     object Common {
 
         const val gson = "com.google.code.gson:gson:${Versions.gson}"
+        const val arrowCore = "io.arrow-kt:arrow-core:${Versions.arrow}"
     }
 
     object Testing {

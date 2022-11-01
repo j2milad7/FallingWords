@@ -272,7 +272,7 @@ exceptions:
   ThrowingNewInstanceOfSameException:
     active: true
   TooGenericExceptionCaught:
-    active: true
+    active: false
     excludes: [ '**/test/**', '**/androidTest/**', '**/commonTest/**', '**/jvmTest/**', '**/jsTest/**', '**/iosTest/**' ]
     exceptionNames:
       - 'ArrayIndexOutOfBoundsException'
@@ -758,7 +758,7 @@ formatting:
     active: false
     autoCorrect: true
   ImportOrdering:
-    active: true
+    active: false
     autoCorrect: true
     layout: '*,java.**,javax.**,kotlin.**,^'
   Indentation:

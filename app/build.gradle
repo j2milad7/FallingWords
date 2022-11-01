@@ -70,6 +70,7 @@ dependencies {
 
     // Common
     implementation Libs.Common.gson
+    implementation Libs.Common.arrowCore
 
     // Test Dependencies
     testImplementation Libs.Testing.junit

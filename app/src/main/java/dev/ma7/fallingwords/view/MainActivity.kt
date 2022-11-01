@@ -1,7 +1,8 @@
-package dev.ma7.fallingwords
+package dev.ma7.fallingwords.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import dev.ma7.fallingwords.R
 
 class MainActivity : AppCompatActivity() {
 

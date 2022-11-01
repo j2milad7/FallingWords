@@ -13,6 +13,7 @@ object Versions {
     const val constraintLayout = "2.1.4"
     const val hilt = "2.43"
     const val gson = "2.9.0"
+    const val arrow = "1.1.2"
     const val junit = "4.13.2"
     const val mockitoKotlin = "4.0.0"
     const val testRunner = "1.4.0"
