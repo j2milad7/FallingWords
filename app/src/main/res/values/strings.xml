@@ -8,4 +8,7 @@
     <string name="action_easy">Easy</string>
     <string name="action_medium">Medium</string>
     <string name="action_hard">Hard</string>
+
+    <!--Strings related to GameFragment-->
+    <string name="label_game">Game</string>
 </resources>

@@ -6,6 +6,7 @@ import dev.ma7.fallingwords.domain.model.GameDifficulty.EASY
 import dev.ma7.fallingwords.domain.model.GameDifficulty.HARD
 import dev.ma7.fallingwords.domain.model.GameDifficulty.MEDIUM
 import dev.ma7.fallingwords.view.base.BaseViewModel
+import dev.ma7.fallingwords.view.util.Navigation
 import javax.inject.Inject
 
 @HiltViewModel
@@ -23,8 +24,11 @@ class WelcomeViewModel @Inject constructor() : BaseViewModel() {
         openGameFragment(HARD)
     }
 
-    @Suppress("UnusedPrivateMember")
     private fun openGameFragment(gameDifficulty: GameDifficulty) {
-        // navigate(Navigation.Direction())
+        navigate(
+            Navigation.Direction(
+                WelcomeFragmentDirections.openGameFragment(gameDifficulty)
+            )
+        )
     }
 }

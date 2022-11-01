@@ -10,6 +10,28 @@
         android:id="@+id/WelcomeFragment"
         android:name="dev.ma7.fallingwords.view.welcome.WelcomeFragment"
         android:label="@string/label_welcome"
-        tools:layout="@layout/fragment_welcome" />
+        tools:layout="@layout/fragment_welcome">
+
+        <action
+            android:id="@+id/open_game_fragment"
+            app:destination="@id/GameFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_down"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_down" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/GameFragment"
+        android:name="dev.ma7.fallingwords.view.game.GameFragment"
+        android:label="@string/label_game"
+        tools:layout="@layout/fragment_game">
+
+        <argument
+            android:name="gameDifficulty"
+            app:argType="dev.ma7.fallingwords.domain.model.GameDifficulty"
+            app:nullable="false" />
+
+    </fragment>
 
 </navigation>
