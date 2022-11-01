@@ -1,0 +1,20 @@
+<resources>
+
+    <!--Dimens related to TextSize-->
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_normal">16sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+
+    <!--Dimens related to Margin-->
+    <dimen name="margin_tiny">2dp</dimen>
+    <dimen name="margin_xxx_small">4dp</dimen>
+    <dimen name="margin_xx_small">8dp</dimen>
+    <dimen name="margin_x_small">12dp</dimen>
+    <dimen name="margin_small">14dp</dimen>
+    <dimen name="margin_normal">16dp</dimen>
+    <dimen name="margin_large">24dp</dimen>
+    <dimen name="margin_x_large">32dp</dimen>
+    <dimen name="margin_xx_large">48dp</dimen>
+    <dimen name="margin_xxx_large">68dp</dimen>
+
+</resources>

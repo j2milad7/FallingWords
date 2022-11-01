@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="dev.ma7.fallingwords.view.welcome.WelcomeViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_large">
+
+        <TextView
+            style="@style/FallingWords.Text.Medium.Headline6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/text_welcome" />
+
+        <TextView
+            style="@style/FallingWords.Text.Subtitle1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            android:gravity="center"
+            android:text="@string/text_game_description" />
+
+        <Button
+            style="@style/FallingWords.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin_xx_large"
+            android:onClick="@{() -> viewModel.onEasyClick()}"
+            android:text="@string/action_easy" />
+
+        <Button
+            style="@style/FallingWords.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:onClick="@{() -> viewModel.onMediumClick()}"
+            android:text="@string/action_medium" />
+
+        <Button
+            style="@style/FallingWords.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:onClick="@{() -> viewModel.onHardClick()}"
+            android:text="@string/action_hard" />
+
+    </LinearLayout>
+
+</layout>

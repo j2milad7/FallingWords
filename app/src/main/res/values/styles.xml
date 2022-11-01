@@ -1,0 +1,41 @@
+<resources>
+
+    <style name="FallingWords" />
+
+    <!--=============================-->
+    <!--    Styles related to Text   -->
+    <!--=============================-->
+    <style name="FallingWords.Text">
+        <item name="android:fontFamily">@font/regular</item>
+        <item name="android:textColor">@color/textPrimary</item>
+    </style>
+
+    <style name="FallingWords.Text.Medium">
+        <item name="android:fontFamily">@font/medium</item>
+    </style>
+
+    <style name="FallingWords.Text.Medium.Headline6">
+        <item name="android:textSize">@dimen/text_size_large</item>
+    </style>
+
+    <style name="FallingWords.Text.Subtitle1">
+        <item name="android:textSize">@dimen/text_size_normal</item>
+    </style>
+
+    <style name="FallingWords.Text.Medium.Subtitle2">
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <style name="FallingWords.Text.Body2">
+        <item name="android:textSize">@dimen/text_size_small</item>
+    </style>
+
+    <!--=============================-->
+    <!--    Styles related to Button   -->
+    <!--=============================-->
+
+    <style name="FallingWords.Button">
+        <item name="android:fontFamily">@font/medium</item>
+    </style>
+
+</resources>

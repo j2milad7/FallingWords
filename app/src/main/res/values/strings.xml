@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">FallingWords</string>
+
+    <!--Strings related to WelcomeFragment-->
+    <string name="label_welcome">Welcome</string>
+    <string name="text_welcome">Welcome To Falling Words Game</string>
+    <string name="text_game_description">Please choose a game difficulty:</string>
+    <string name="action_easy">Easy</string>
+    <string name="action_medium">Medium</string>
+    <string name="action_hard">Hard</string>
 </resources>
