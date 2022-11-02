@@ -55,7 +55,7 @@
     <!-- Styles related to Alert Dialog -->
     <!--================================-->
 
-    <style name="FallingWords.AlertDialog" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
+    <style name="FallingWords.AlertDialog" parent="Theme.MaterialComponents.Light.Dialog.Alert">
         <item name="buttonBarPositiveButtonStyle">@style/FallingWords.Button.Positive</item>
     </style>
 

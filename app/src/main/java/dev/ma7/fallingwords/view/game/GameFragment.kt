@@ -195,7 +195,7 @@ class GameFragment : BaseFragment<GameViewModel>() {
             imageGameResult.animate().cancel()
             imageGameResult.scaleX = SCALE_OUT
             imageGameResult.scaleY = SCALE_OUT
-            
+
             imageGameCorrect.isEnabled = true
             imageGameWrong.isEnabled = true
         }
