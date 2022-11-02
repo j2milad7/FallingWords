@@ -188,13 +188,22 @@ class GameFragment : BaseFragment<GameViewModel>() {
 
     private fun resetViews() {
         with(binding) {
+            textGameTranslation.animate().cancel()
             textGameTranslation.alpha = FADE_OUT_ALPHA
             textGameTranslation.translationY = DEFAULT_TRANSLATION_Y
+
+            imageGameResult.animate().cancel()
             imageGameResult.scaleX = SCALE_OUT
             imageGameResult.scaleY = SCALE_OUT
+            
             imageGameCorrect.isEnabled = true
             imageGameWrong.isEnabled = true
         }
+    }
+
+    private fun finishGame(score: Int, isTimeUp: Boolean) {
+        resetViews()
+        showGameFinalResultDialog(score, isTimeUp)
     }
 
     private fun showToast(message: String?) {
@@ -218,6 +227,9 @@ class GameFragment : BaseFragment<GameViewModel>() {
                 is ViewState.Answer -> {
                     showAnswerResult(viewState.isCorrect)
                 }
+                is ViewState.Finish -> {
+                    finishGame(viewState.score, viewState.isTimeUp)
+                }
                 is ViewState.Error -> {
                     progressBarGame.gone()
                     showToast(viewState.error.message)
@@ -236,6 +248,24 @@ class GameFragment : BaseFragment<GameViewModel>() {
                 viewModel.onStartGame()
             }
             .setNegativeButton(R.string.action_back) { dialog, _ ->
+                dialog.dismiss()
+                navigate(Navigation.Pop)
+            }
+            .create()
+            .show()
+    }
+
+    private fun showGameFinalResultDialog(score: Int, isTimeUp: Boolean) {
+        val title = when {
+            isTimeUp -> R.string.text_time_up_title
+            score > 0 -> R.string.text_result_title
+            else -> R.string.text_oh_no_title
+        }
+        AlertDialog.Builder(requireContext())
+            .setTitle(title)
+            .setMessage(getString(R.string.text_result_message, score))
+            .setCancelable(false)
+            .setNeutralButton(R.string.action_ok) { dialog, _ ->
                 dialog.dismiss()
                 navigate(Navigation.Pop)
             }

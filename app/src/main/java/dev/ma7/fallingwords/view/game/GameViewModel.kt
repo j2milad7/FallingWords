@@ -21,7 +21,6 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.conflate
 import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
@@ -88,7 +87,9 @@ class GameViewModel @Inject constructor(
     }
 
     fun onNextQuestion() {
+        if (questionList.isEmpty()) return
         if (currentQuestionIndex >= questionList.size - 1) {
+            finishGame(isTimeUp = false)
             return
         }
         currentQuestionIndex++
@@ -102,16 +103,25 @@ class GameViewModel @Inject constructor(
         currentQuestionIndex = DEFAULT_QUESTION_INDEX
         score = DEFAULT_SCORE
         _timerStateFlow.value = DEFAULT_TIME
+        _wordStateFlow.value = ""
+        _translationStateFlow.value = ""
         timerJob?.cancel()
     }
 
     private fun checkAnswer(isCorrect: Boolean) {
+        if (questionList.isEmpty()) return
         val question: Question = questionList[currentQuestionIndex]
         val isAnswerCorrect = question.isCorrect == isCorrect
         if (isAnswerCorrect) {
             score++
         }
         _viewStateLiveData.value = ViewState.Answer(isAnswerCorrect)
+    }
+
+    private fun finishGame(isTimeUp: Boolean) {
+        _wordStateFlow.value = ""
+        _translationStateFlow.value = ""
+        _viewStateLiveData.value = ViewState.Finish(score, isTimeUp)
     }
 
     private fun getData() {
@@ -141,8 +151,12 @@ class GameViewModel @Inject constructor(
                 .onStart { emit(totalSeconds) }
                 .conflate()
                 .flowOn(Dispatchers.Default)
-                .onCompletion {}
-                .collect { _timerStateFlow.value = it }
+                .collect {
+                    _timerStateFlow.value = it
+                    if (it == 0) {
+                        finishGame(isTimeUp = true)
+                    }
+                }
         }
     }
 

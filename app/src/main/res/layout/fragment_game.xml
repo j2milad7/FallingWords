@@ -136,7 +136,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/image_game_wrong"
         app:layout_constraintWidth_percent="0.3"
-        app:srcCompat="@drawable/background_answer_correct" />
+        app:srcCompat="@drawable/selector_background_answer_correct" />
 
     <ImageView
         android:id="@+id/image_game_wrong"
@@ -149,7 +149,7 @@
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintWidth_percent="0.3"
-        app:srcCompat="@drawable/background_answer_wrong" />
+        app:srcCompat="@drawable/selector_background_answer_wrong" />
 
     <ImageView
         android:id="@+id/image_game_result"

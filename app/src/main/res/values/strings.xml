@@ -17,5 +17,10 @@
     <string name="text_start_message">Press <b>START</b> to challenge your Spanish language knowledge!</string>
     <string name="action_start">Start</string>
     <string name="action_back">Back</string>
+    <string name="text_result_title">Congratulations!</string>
+    <string name="text_time_up_title">Time is up!</string>
+    <string name="text_oh_no_title">Oh No!</string>
+    <string name="text_result_message">Your score is: <b>%d</b></string>
+    <string name="action_ok">OK!</string>
 
 </resources>
