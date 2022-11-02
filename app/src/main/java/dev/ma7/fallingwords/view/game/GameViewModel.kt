@@ -119,6 +119,7 @@ class GameViewModel @Inject constructor(
     }
 
     private fun finishGame(isTimeUp: Boolean) {
+        timerJob?.cancel()
         _wordStateFlow.value = ""
         _translationStateFlow.value = ""
         _viewStateLiveData.value = ViewState.Finish(score, isTimeUp)
