@@ -54,6 +54,9 @@ private fun generateQuestionList(
             leftWorldList.isEmpty() -> gameWordList.random().spanish
             else -> leftWorldList.random().spanish
         }
+        if (translation.contains("/")) {
+            translation.replace(oldValue = "/", newValue = "/\n")
+        }
         Question(it.english, translation, shouldHaveCorrectTranslation)
     }
 }

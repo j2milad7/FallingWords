@@ -29,7 +29,15 @@ class WelcomeFragment : BaseFragment<WelcomeViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.viewModel = viewModel
+        setListeners()
+    }
+
+    private fun setListeners() {
+        with(binding) {
+            buttonWelcomeEasy.setOnClickListener { viewModel.onEasyClick() }
+            buttonWelcomeMedium.setOnClickListener { viewModel.onMediumClick() }
+            buttonWelcomeHard.setOnClickListener { viewModel.onHardClick() }
+        }
     }
 
     override fun onDestroyView() {

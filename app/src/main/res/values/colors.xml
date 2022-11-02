@@ -15,4 +15,16 @@
     <!--Grey-->
     <color name="grey_600">#757575</color>
 
+    <!--Cyan-->
+    <color name="cyan_100">#b2ebf2</color>
+
+    <!--Pink-->
+    <color name="pink_500">#e91e63</color>
+
+    <!--Orange-->
+    <color name="orange_600">#f4511e</color>
+
+    <!--Green-->
+    <color name="green_700">#388e3c</color>
+
 </resources>

@@ -11,4 +11,11 @@
 
     <!--Strings related to GameFragment-->
     <string name="label_game">Game</string>
+    <string name="text_score">Score:</string>
+    <string name="text_time">Time:</string>
+    <string name="text_start_title">Let\'s Have Fun!</string>
+    <string name="text_start_message">Press <b>START</b> to challenge your Spanish language knowledge!</string>
+    <string name="action_start">Start</string>
+    <string name="action_back">Back</string>
+
 </resources>

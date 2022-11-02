@@ -1,16 +1,19 @@
 package dev.ma7.fallingwords.view.base
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dev.ma7.fallingwords.view.util.Navigation
-import dev.ma7.fallingwords.view.util.SingleEventLiveData
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.launch
 
 abstract class BaseViewModel : ViewModel() {
 
-    private val _navigationLiveData = SingleEventLiveData<Navigation>()
-    val navigationLiveData: LiveData<Navigation> = _navigationLiveData
+    private val _navigationSharedFlow = MutableSharedFlow<Navigation>()
+    val navigationSharedFlow: SharedFlow<Navigation> = _navigationSharedFlow.asSharedFlow()
 
     fun navigate(navigation: Navigation) {
-        _navigationLiveData.value = navigation
+        viewModelScope.launch { _navigationSharedFlow.emit(navigation) }
     }
 }

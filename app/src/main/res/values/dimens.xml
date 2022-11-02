@@ -4,6 +4,8 @@
     <dimen name="text_size_small">14sp</dimen>
     <dimen name="text_size_normal">16sp</dimen>
     <dimen name="text_size_large">18sp</dimen>
+    <dimen name="text_size_x_large">20sp</dimen>
+    <dimen name="text_size_xxx_large">24sp</dimen>
 
     <!--Dimens related to Margin-->
     <dimen name="margin_tiny">2dp</dimen>

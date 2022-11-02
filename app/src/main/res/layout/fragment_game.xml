@@ -1,7 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint_layout_game"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/cyan_100">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_game_background_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_game_translation_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.17" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_game_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.242" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_game_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.758" />
+
+    <ImageView
+        android:id="@+id/image_game_background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline_game_background_top"
+        app:srcCompat="@drawable/background_waterfall" />
+
+    <TextView
+        android:id="@+id/text_game_score_label"
+        style="@style/FallingWords.Text.Medium.Headline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_xx_small"
+        android:text="@string/text_score"
+        android:textColor="@color/orange_600"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_game_background_top"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/text_game_score"
+        style="@style/FallingWords.Text.Medium.Headline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_tiny"
+        android:textColor="@color/orange_600"
+        app:layout_constraintBottom_toBottomOf="@id/text_game_score_label"
+        app:layout_constraintStart_toEndOf="@id/text_game_score_label"
+        tools:text="150" />
+
+    <TextView
+        android:id="@+id/text_game_time"
+        style="@style/FallingWords.Text.Medium.Headline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_tiny"
+        android:text="@string/text_time"
+        android:textColor="@color/orange_600"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_game_background_top"
+        app:layout_constraintEnd_toStartOf="@id/text_game_remaining_time" />
+
+    <TextView
+        android:id="@+id/text_game_remaining_time"
+        style="@style/FallingWords.Text.Medium.Headline7"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_xx_small"
+        android:textColor="@color/orange_600"
+        app:layout_constraintBottom_toBottomOf="@id/text_game_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="150" />
+
+    <TextView
+        android:id="@+id/text_game_word"
+        style="@style/FallingWords.Text.Medium.Headline6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@id/guideline_game_end"
+        app:layout_constraintStart_toStartOf="@id/guideline_game_start"
+        app:layout_constraintTop_toTopOf="@id/guideline_game_background_top"
+        tools:text="@tools:sample/lorem" />
+
+    <ImageView
+        android:id="@+id/image_game_shark"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.25"
+        app:srcCompat="@drawable/background_shark" />
+
+    <TextView
+        android:id="@+id/text_game_translation"
+        style="@style/FallingWords.Text.Medium.Headline5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/pink_500"
+        app:layout_constraintEnd_toEndOf="@id/guideline_game_end"
+        app:layout_constraintStart_toStartOf="@id/guideline_game_start"
+        app:layout_constraintTop_toTopOf="@id/guideline_game_translation_top"
+        tools:alpha="1"
+        tools:text="@tools:sample/lorem" />
+
+    <ImageView
+        android:id="@+id/image_game_correct"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_normal"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/image_game_wrong"
+        app:layout_constraintWidth_percent="0.3"
+        app:srcCompat="@drawable/background_answer_correct" />
+
+    <ImageView
+        android:id="@+id/image_game_wrong"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/image_game_correct"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.3"
+        app:srcCompat="@drawable/background_answer_wrong" />
+
+    <ImageView
+        android:id="@+id/image_game_result"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:padding="@dimen/margin_large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline_game_end"
+        app:layout_constraintStart_toStartOf="@id/guideline_game_start"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:scaleX="1"
+        tools:scaleY="1"
+        tools:src="@drawable/background_thumb_up" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar_game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
