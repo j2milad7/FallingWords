@@ -30,33 +30,33 @@ class QuestionsUseCase @Inject constructor(
             }
         }
     }
-}
 
-private fun generateQuestionList(
-    gameDifficulty: GameDifficulty,
-    wordList: List<WordDto>
-): List<Question> {
-    if (wordList.isEmpty()) return emptyList()
-    if (wordList.size < gameDifficulty.wordsCount) {
-        throw IllegalArgumentException("This game difficulty could not be chosen at this time!")
-    }
+    private fun generateQuestionList(
+        gameDifficulty: GameDifficulty,
+        wordList: List<WordDto>
+    ): List<Question> {
+        if (wordList.isEmpty()) return emptyList()
+        if (wordList.size < gameDifficulty.wordsCount) {
+            throw IllegalArgumentException("This game difficulty could not be chosen at this time!")
+        }
 
-    val shuffledWordList = wordList.shuffled()
-    val gameWordList = shuffledWordList.subList(0, gameDifficulty.wordsCount)
-    val leftWorldList = shuffledWordList.subList(
-        gameDifficulty.wordsCount,
-        shuffledWordList.size
-    )
-    return gameWordList.map {
-        val shouldHaveCorrectTranslation = Random.nextBoolean()
-        val translation = when {
-            shouldHaveCorrectTranslation -> it.spanish
-            leftWorldList.isEmpty() -> gameWordList.random().spanish
-            else -> leftWorldList.random().spanish
+        val shuffledWordList = wordList.shuffled()
+        val gameWordList = shuffledWordList.subList(0, gameDifficulty.wordsCount)
+        val leftWorldList = shuffledWordList.subList(
+            gameDifficulty.wordsCount,
+            shuffledWordList.size
+        )
+        return gameWordList.map {
+            val shouldHaveCorrectTranslation = Random.nextBoolean()
+            val translation = when {
+                shouldHaveCorrectTranslation -> it.spanish
+                leftWorldList.isEmpty() -> gameWordList.random().spanish
+                else -> leftWorldList.random().spanish
+            }
+            if (translation.contains("/")) {
+                translation.replace(oldValue = "/", newValue = "/\n")
+            }
+            Question(it.english, translation, shouldHaveCorrectTranslation)
         }
-        if (translation.contains("/")) {
-            translation.replace(oldValue = "/", newValue = "/\n")
-        }
-        Question(it.english, translation, shouldHaveCorrectTranslation)
     }
 }
