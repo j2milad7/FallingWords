@@ -1,0 +1,82 @@
+import dev.ma7.fallingwords.buildsrc.Android
+import dev.ma7.fallingwords.buildsrc.Libs
+
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+preBuild.dependsOn "detekt"
+
+android {
+    compileSdkVersion Android.compileSdkVersion
+    defaultConfig {
+        applicationId Android.applicationId
+        minSdkVersion Android.minSdkVersion
+        targetSdkVersion Android.targetSdkVersion
+        versionCode Android.versionCode
+        versionName Android.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+dependencies {
+
+    // Kotlin
+    implementation Libs.Kotlin.kotlinLib
+    implementation Libs.Kotlin.coroutines
+    implementation Libs.Kotlin.coroutinesAndroid
+
+    // Jetpack
+    implementation Libs.Jetpack.appCompat
+    implementation Libs.Jetpack.coreKtx
+    implementation Libs.Jetpack.viewModelKtx
+    implementation Libs.Jetpack.liveDataKtx
+    implementation Libs.Jetpack.material
+    implementation Libs.Jetpack.constraintLayout
+    implementation Libs.Jetpack.navigationFragmentKtx
+    implementation Libs.Jetpack.navigationUiKtx
+
+    // Hilt
+    implementation Libs.Jetpack.hilt
+    kapt Libs.Jetpack.hiltCompiler
+
+    // Common
+    implementation Libs.Common.gson
+    implementation Libs.Common.arrowCore
+
+    // Test Dependencies
+    testImplementation Libs.Testing.junit
+    testImplementation Libs.Testing.coroutinesTest
+    testImplementation Libs.Testing.mockitoKotlin
+    testImplementation Libs.Testing.testRunner
+    testImplementation Libs.Testing.coreTesting
+    androidTestImplementation Libs.Testing.espresso
+    androidTestImplementation Libs.Testing.testExtJunit
+}

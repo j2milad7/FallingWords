@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!--Text-->
+    <color name="textPrimary">#212121</color>
+    <color name="textSecondary">@color/grey_600</color>
+
+    <!--Grey-->
+    <color name="grey_600">#757575</color>
+
+    <!--Cyan-->
+    <color name="cyan_100">#b2ebf2</color>
+    <color name="cyan_500">#00bcd4</color>
+    <color name="cyan_700">#0097a7</color>
+
+    <!--Purple-->
+    <color name="purple_200">#ce93d8</color>
+    <color name="purple_700">#7b1fa2</color>
+
+    <!--Pink-->
+    <color name="pink_500">#e91e63</color>
+
+    <!--Orange-->
+    <color name="orange_600">#f4511e</color>
+
+    <!--Green-->
+    <color name="green_700">#388e3c</color>
+
+</resources>

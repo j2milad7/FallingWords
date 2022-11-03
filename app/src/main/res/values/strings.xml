@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">FallingWords</string>
+
+    <!--Strings related to WelcomeFragment-->
+    <string name="label_welcome">Welcome</string>
+    <string name="text_welcome">Welcome To Falling Words Game</string>
+    <string name="text_game_description"><b>Play this game to learn Spanish!</b>\nYou can choose the correct answer by clicking on the related stones before the shark eats the word!\nLet\'s play by selecting a game difficulty:</string>
+    <string name="action_easy">Easy</string>
+    <string name="action_medium">Medium</string>
+    <string name="action_hard">Hard</string>
+
+    <!--Strings related to GameFragment-->
+    <string name="label_game">Game</string>
+    <string name="text_score">Score:</string>
+    <string name="text_time">Time:</string>
+    <string name="text_start_title">Let\'s Have Fun!</string>
+    <string name="text_start_message">Press <b>START</b> to challenge your Spanish language knowledge!</string>
+    <string name="action_start">Start</string>
+    <string name="action_back">Back</string>
+    <string name="text_result_title">Congratulations!</string>
+    <string name="text_time_up_title">Time is up!</string>
+    <string name="text_oh_no_title">Oh No!</string>
+    <string name="text_result_message">Your score is: <b>%d</b></string>
+    <string name="action_ok">OK!</string>
+
+</resources>
