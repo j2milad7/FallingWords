@@ -73,6 +73,7 @@ class GameViewModel @Inject constructor(
     }
 
     fun onStartGame() {
+        if (questionList.isEmpty()) return
         resetGame()
         onNextQuestion()
         initCountDownTimer(totalSeconds = args.gameDifficulty.wordsCount * TIMER_FACTOR)
@@ -87,7 +88,6 @@ class GameViewModel @Inject constructor(
     }
 
     fun onNextQuestion() {
-        if (questionList.isEmpty()) return
         if (currentQuestionIndex >= questionList.size - 1) {
             finishGame(isTimeUp = false)
             return
@@ -161,12 +161,12 @@ class GameViewModel @Inject constructor(
         }
     }
 
-    private companion object {
+    companion object {
 
-        const val TIMER_DELAY_IN_MILLIS = 1000L
+        private const val DEFAULT_QUESTION_INDEX = -1
+        private const val TIMER_DELAY_IN_MILLIS = 1000L
         const val TIMER_FACTOR = 10
         const val DEFAULT_SCORE = 0
         const val DEFAULT_TIME = 0
-        const val DEFAULT_QUESTION_INDEX = -1
     }
 }

@@ -3,6 +3,7 @@
 package dev.ma7.fallingwords.util
 
 import dev.ma7.fallingwords.data.model.WordDto
+import dev.ma7.fallingwords.domain.model.Question
 
 const val WORDS_JSON = "[\n" +
         "  {\n" +
@@ -26,4 +27,9 @@ val wordList = listOf(
     WordDto(english = "English 8", spanish = "Spanish 8"),
     WordDto(english = "English 9", spanish = "Spanish 9"),
     WordDto(english = "English 10", spanish = "Spanish 10")
+)
+
+val questionList = listOf(
+    Question(english = "English 1", spanish = "Spanish 1", isCorrect = true),
+    Question(english = "English 2", spanish = "Spanish 2", isCorrect = false)
 )
