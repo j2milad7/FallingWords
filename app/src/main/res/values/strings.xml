@@ -4,7 +4,7 @@
     <!--Strings related to WelcomeFragment-->
     <string name="label_welcome">Welcome</string>
     <string name="text_welcome">Welcome To Falling Words Game</string>
-    <string name="text_game_description">Please choose a game difficulty:</string>
+    <string name="text_game_description"><b>Play this game to learn Spanish!</b>\nYou can choose the correct answer by clicking on the related stones before the shark eats the word!\nLet\'s play by selecting a game difficulty:</string>
     <string name="action_easy">Easy</string>
     <string name="action_medium">Medium</string>
     <string name="action_hard">Hard</string>
